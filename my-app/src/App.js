@@ -18,6 +18,7 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 import black from "../src/Assets/ath-msr7-black.jpg";
 import brown from "../src/Assets/ath-msr7-brown.jpg";
@@ -47,12 +48,15 @@ function ProductView() {
     };
     const triggerClick = () => {
         setLoading(true);
-        setInterval(()=>{
+        setTimeout(()=>{
             setLoading(false);
             setFinishLoading(true);
             triggerAlert("success","Added to Cart Successfully",true);
         },2000);
     }
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    });
     return (
         <Card sx={{minWidth: 800, align: 'center'}}>
             <Grid container spacing={2}>
