@@ -17,7 +17,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
+import Snackbar from '@mui/material/Snackbar';
 
 import black from "../src/Assets/ath-msr7-black.jpg";
 import brown from "../src/Assets/ath-msr7-brown.jpg";
@@ -32,6 +32,10 @@ function ProductView() {
     const [isFinishLoading, setFinishLoading] = React.useState(false);
     const handleChange = (event, newValue) => {
         setValue(newValue);
+    };
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') { return; }
+        setAlertVisible(false);
     };
     const handleChangeColor = (event) => {
         setImageDisplay(event.target.value);
@@ -75,6 +79,11 @@ function ProductView() {
                             Our Verdict. The Audio-Technica ATH-M50x are better critical listening headphones than the Sony MDR-7506. The Audio-Technica will be more comfortable to wear during long listening sessions and they feel better-built. Their sound is very good and more accurate than the Sony, especially in the treble.
                         </TabPanel>
                     </Box>
+                    <Box sx={{ width: '100%' }}>
+                        <Typography component="div" variant="h6" sx={{padding: 3}}>
+                            $59.99
+                        </Typography>
+                    </Box>
                     <Box sx={{ minWidth: 120, paddingLeft: 3, paddingBottom: 2 }}>
                         <FormControl>
                             <InputLabel id="demo-simple-select-label">Color</InputLabel>
@@ -96,7 +105,7 @@ function ProductView() {
                     </CardActions>
                 </Grid>
                 <Divider/>
-                <Grid item xs={12} lg={6}>
+                <Grid item xs={12} lg={6} sx={{borderLeft: "1px solid #cbcbcb"}}>
                     <CardMedia
                         component="img"
                         sx={{ width: 400 }}
@@ -105,10 +114,10 @@ function ProductView() {
                     />
                 </Grid>
             </Grid>
-            {alertVisible ? <Alert severity={severity}>
-                <AlertTitle>{alertTitle}</AlertTitle>
+            <Snackbar open={alertVisible} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
                 {alertTitle}
-            </Alert> : null}
+            </Alert></Snackbar>
         </Card>
     );
 }
