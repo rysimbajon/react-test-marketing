@@ -85,7 +85,7 @@ function ProductView() {
                                 <Typography component="div" variant="h6">$59.99</Typography>
                             </Grid>
                             <Grid item xs={12} lg={3}>
-                                <del><Typography component="div" variant="h6" sx={{color: "#adada2"}}>$89.99</Typography></del>
+                                <Typography component="div" variant="h6" sx={{color: "#adada2"}}><del>$89.99</del></Typography>
                             </Grid>
                         </Grid>
                     </Box>
