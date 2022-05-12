@@ -43,8 +43,11 @@ function ProductView() {
     };
     const triggerClick = () => {
         setLoading(true);
-        setInterval(setLoading(false),2000)
-        setFinishLoading(true);
+        setInterval(()=>{
+            setLoading(false);
+            setFinishLoading(true);
+            triggerAlert("success","Added to Cart Successfully",true);
+        },2000);
     }
     return (
         <Card sx={{minWidth: 800, align: 'center'}}>
