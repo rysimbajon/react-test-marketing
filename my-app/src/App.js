@@ -79,10 +79,15 @@ function ProductView() {
                             Our Verdict. The Audio-Technica ATH-M50x are better critical listening headphones than the Sony MDR-7506. The Audio-Technica will be more comfortable to wear during long listening sessions and they feel better-built. Their sound is very good and more accurate than the Sony, especially in the treble.
                         </TabPanel>
                     </Box>
-                    <Box sx={{ width: '100%' }}>
-                        <Typography component="div" variant="h6" sx={{padding: 3}}>
-                            $59.99
-                        </Typography>
+                    <Box sx={{ width: '100%', padding: 3 }}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} lg={3}>
+                                <Typography component="div" variant="h6">$59.99</Typography>
+                            </Grid>
+                            <Grid item xs={12} lg={3}>
+                                <Typography component="div" variant="h6" sx={{color: "#adada2"}}>$59.99</Typography>
+                            </Grid>
+                        </Grid>
                     </Box>
                     <Box sx={{ minWidth: 120, paddingLeft: 3, paddingBottom: 2 }}>
                         <FormControl>
